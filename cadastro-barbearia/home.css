@@ -1,0 +1,252 @@
+/* home.css - Versão completa atualizada */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@400;500;600&display=swap');
+
+/* Alterações no home.css para remover a faixa branca */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  line-height: 1.8;
+  padding-top: 0; /* ALTERADO: remover o padding-top de 76px */
+  margin: 0; /* ADICIONADO: garantir que não há margin */
+  overflow-x: hidden; /* ADICIONADO: evitar scrollbar horizontal */
+}
+
+/* Header transparente com efeito glass */
+nav {
+  background-color: rgba(6, 41, 18, 0.85);
+  backdrop-filter: blur(8px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 0; /* ADICIONADO: garantir que não há margin */
+}
+
+
+.logo {
+  width: auto;
+  max-height: 50px;
+}
+
+a.navbar-brand {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+a.nav-link {
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+a.nav-link:hover {
+  color: #c9a45c !important; /* Tom dourado para hover */
+}
+
+/* Estilos do Menu em telas grandes */
+@media (min-width: 992px) {
+  .navbar-nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-left: 40px;
+  }
+  
+  .nav-item {
+    margin: 0 15px;
+  }
+}
+
+/* Destaque para o link de login */
+.nav-link.login-link {
+  font-weight: bold;
+  text-shadow: 0 0 2px rgba(255,255,255,0.3);
+}
+
+/* Carrossel aprimorado com background fixed */
+.carousel-item {
+  height: 100vh;
+  min-height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 15%;
+}
+
+.brand-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+  margin-bottom: 20px;
+}
+
+.brand-tagline {
+  font-size: 1.5rem;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+  margin-bottom: 30px;
+}
+
+.hero-cta {
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  background-color: #062912;
+  color: #fff;
+  border: 2px solid #fff;
+  transition: all 0.3s ease;
+}
+
+.hero-cta:hover {
+  background-color: #fff;
+  color: #062912;
+}
+
+/* Melhorar os controles do carrossel */
+.carousel-control-prev, 
+.carousel-control-next {
+  width: 5%;
+  opacity: 0.7;
+}
+
+.carousel-control-prev-icon, 
+.carousel-control-next-icon {
+  background-color: rgba(6, 41, 18, 0.6);
+  padding: 20px;
+  border-radius: 50%;
+}
+
+/* Estilos do título da história */
+.titulo-historia h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #062912;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.titulo-historia h2:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 80px;
+  background: linear-gradient(to right, #062912, #568367);
+}
+
+/* Estilos dos parágrafos */
+.container p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Estilos do botão (sobrescrevendo o Bootstrap) */
+.btn-primary {
+  background-color: #062912; /* Cor principal da barbearia */
+  border-color: #062912;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 10px 25px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #041a0c;
+  border-color: #041a0c;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(6, 41, 18, 0.4);
+}
+
+/* Rodapé aprimorado */
+footer {
+  background-color: #062912 !important;
+  color: #fff !important;
+  padding: 50px 0 !important;
+  margin-top: 80px !important;
+}
+
+footer p {
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.footer-social {
+  margin-top: 15px;
+}
+
+.footer-social a {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-right: 15px;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #c9a45c;
+}
+
+/* Media query para responsividade */
+@media (max-width: 768px) {
+  .titulo-historia h2 {
+    font-size: 1.8rem;
+  }
+  
+  .brand-headline {
+    font-size: 2.5rem;
+  }
+  
+  .brand-tagline {
+    font-size: 1.2rem;
+  }
+  
+  .hero-cta {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  
+  .carousel-item {
+    height: 70vh;
+  }
+}

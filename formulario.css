@@ -1,0 +1,158 @@
+/* Reset de margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos gerais do corpo da página */
+body {
+    background-color: #e8f3ea;
+    font-family: sans-serif;
+    color: #114123;
+}
+
+/* Container principal - REDUZIDO */
+.container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    margin-bottom: 30px;
+    max-width: 600px !important; /* Reduzido de 1140px (padrão Bootstrap) */
+}
+
+/* Navbar personalizada */
+.navbar {
+    background-color: #062912 !important;
+}
+
+/* Imagem - REDUZIDA */
+.container-imagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px; /* Reduzido de 20px */
+}
+
+.container-imagem img {
+    width: 120px; /* Reduzido de 150px */
+    height: 120px; /* Reduzido de 150px */
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Título e subtítulo - COMPACTADOS */
+.container-titulo {
+    text-align: center;
+    margin-top: 15px; /* Reduzido de 20px */
+    margin-bottom: 20px; /* Reduzido de 30px */
+}
+
+#titulo {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    color: #062912;
+    margin-bottom: 5px; /* Reduzido de 10px */
+    font-size: 2rem; /* Reduzido de 2.5rem */
+}
+
+#subtitulo {
+    font-family: sans-serif;
+    color: #114123;
+    margin-bottom: 15px; /* Reduzido de 20px */
+    font-size: 1rem; /* Reduzido de 1.2rem */
+}
+
+/* Container do formulário - MAIS COMPACTO */
+.container-conteudo form {
+    width: 100%;
+    max-width: 450px; /* Reduzido de 500px */
+    margin: 0 auto;
+}
+
+/* Estilos dos campos - MAIS COMPACTOS */
+.form-group {
+    margin-bottom: 15px; /* Reduzido de 20px */
+}
+
+/* Personalização do input-group */
+.input-group-text {
+    background-color: #062912;
+    border: 1px solid #062912;
+    color: white;
+}
+
+.form-control:focus {
+    border-color: #114123;
+    box-shadow: 0 0 0 0.25rem rgba(6, 41, 18, 0.25);
+}
+
+/* Botão de mostrar/ocultar senha */
+.btn-outline-secondary {
+    color: #062912;
+    border-color: #ced4da;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #e8f3ea;
+    color: #062912;
+}
+
+/* Estilos do botão - MAIS COMPACTO */
+.container-botao {
+    text-align: center;
+    margin-top: 20px; /* Reduzido de 30px */
+}
+
+.btn-primary {
+    background-color: #062912;
+    border-color: #062912;
+    padding: 8px 25px; /* Reduzido de 10px 30px */
+}
+
+.btn-primary:hover {
+    background-color: #0a4120;
+    border-color: #0a4120;
+}
+
+/* Link "Já é cadastrado?" */
+.container-link {
+    text-align: center;
+    margin-top: 12px; /* Reduzido de 15px */
+}
+
+.container-link a {
+    font-size: 0.9rem;
+    color: #062912;
+    text-decoration: none;
+}
+
+.container-link a:hover {
+    text-decoration: underline;
+}
+
+/* Melhorias de acessibilidade e estética */
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 3px; /* Reduzido de 5px */
+}
+
+/* Ajustes de responsividade */
+@media (max-width: 576px) {
+    #titulo {
+        font-size: 1.8rem; /* Reduzido de 2rem */
+    }
+    
+    .container {
+        padding: 15px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .container-imagem img {
+        width: 100px; /* Reduzido de 120px */
+        height: 100px; /* Reduzido de 120px */
+    }
+}
