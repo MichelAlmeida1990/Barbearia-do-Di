@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Conheça as especialidades e serviços premium oferecidos pela Barbearia do Di" />
-  <title>Especialidadess | Barbearia do Di</title>
+  <meta name="keywords" content="barbearia, corte masculino, barba, fade, corte infantil, barbearia premium">
+  <meta property="og:title" content="Especialidades | Barbearia do Di">
+  <meta property="og:description" content="Conheça as especialidades e serviços premium oferecidos pela Barbearia do Di">
+  <title>Especialidades | Barbearia do Di</title>
   
   <!-- Bootstrap e Font Awesome -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -17,6 +20,33 @@
   
   <!-- CSS personalizado -->
   <link rel="stylesheet" type="text/css" href="especialidades.css" />
+  
+  <!-- CSS Inline para o banner promocional -->
+  <style>
+    .promo-banner {
+      background-color: #ff6b35;
+      color: white;
+      padding: 15px 0;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 0.8; }
+      50% { opacity: 1; }
+      100% { opacity: 0.8; }
+    }
+    
+    .promo-banner h3 {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    .promo-banner p {
+      margin-bottom: 0;
+      font-size: 1.1rem;
+    }
+  </style>
 </head>
 
 <body>
@@ -33,7 +63,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="home.html">Home</a>
+            <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="especialidades.html" aria-current="page">Especialidades</a>
@@ -56,6 +86,14 @@
       <p class="lead">Experiência premium, estilo impecável. Venha para a Barbearia do Di e descubra o novo você!</p>
     </div>
   </header>
+
+  <!-- Banner Promocional (NOVO) -->
+  <div class="promo-banner">
+    <div class="container text-center">
+      <h3>🎉 PROMOÇÃO DE MARÇO 🎉</h3>
+      <p>Toda quarta-feira: 20% OFF em qualquer serviço!</p>
+    </div>
+  </div>
 
   <!-- Conteúdo Principal -->
   <main class="container">
@@ -81,10 +119,10 @@
             <div id="carouselFadeAmericano" class="carousel slide servico-imagem">
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img src="images/fadeamericano.png" class="d-block w-100" alt="Fade Americano - Vista frontal">
+                  <img src="images/fadeamericano.png" class="d-block w-100" alt="Fade Americano - Vista frontal" loading="lazy">
                 </div>
                 <div class="carousel-item">
-                  <img src="images/fadeamericano1.png" class="d-block w-100" alt="Fade Americano - Vista lateral">
+                  <img src="images/fadeamericano1.png" class="d-block w-100" alt="Fade Americano - Vista lateral" loading="lazy">
                 </div>
               </div>
               <button class="carousel-control-prev" type="button" data-bs-target="#carouselFadeAmericano" data-bs-slide="prev">
@@ -112,7 +150,7 @@
         <div class="col-md-4 mb-4">
           <div class="servico-card">
             <div class="servico-imagem">
-              <img src="images/Navalhado com degradê na barba.jpg" class="w-100" alt="Navalhado com degradê na barba">
+              <img src="images/Navalhado com degradê na barba.jpg" class="w-100" alt="Navalhado com degradê na barba" loading="lazy">
             </div>
             <div class="servico-detalhe">
               <h3 class="servico-titulo">Navalhado com Degradê na Barba</h3>
@@ -130,7 +168,7 @@
         <div class="col-md-4 mb-4">
           <div class="servico-card">
             <div class="servico-imagem">
-              <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=1000&auto=format&fit=crop" class="w-100" alt="Corte Social">
+              <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=1000&auto=format&fit=crop" class="w-100" alt="Corte Social" loading="lazy">
             </div>
             <div class="servico-detalhe">
               <h3 class="servico-titulo">Corte Social</h3>
@@ -155,7 +193,7 @@
         <div class="col-md-4 mb-4">
           <div class="servico-card">
             <div class="servico-imagem">
-              <img src="images/nudred_infantil.jpg" class="w-100" alt="Nudred Infantil">
+              <img src="images/nudred_infantil.jpg" class="w-100" alt="Nudred Infantil" loading="lazy">
             </div>
             <div class="servico-detalhe">
               <h3 class="servico-titulo">Nudred Infantil</h3>
@@ -178,7 +216,7 @@
         <div class="col-md-4 mb-4">
           <div class="servico-card">
             <div class="servico-imagem">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB_9ZxougHYbWkJMdM4PXm1jt52SoC1sxtmA&s" alt="Corte Infantil Básico">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB_9ZxougHYbWkJMdM4PXm1jt52SoC1sxtmA&s" alt="Corte Infantil Básico" loading="lazy">
             </div>
             <div class="servico-detalhe">
               <h3 class="servico-titulo">Corte Infantil Básico</h3>
@@ -197,7 +235,7 @@
           <div class="servico-card">
             <span class="badge-destaque">Exclusivo</span>
             <div class="servico-imagem">
-              <img src="https://tse2.mm.bing.net/th?id=OIP.YInNO_1ULExmzblUqYrA_wAAAA&pid=Api&P=0&h=180" alt="Corte Infantil Personalizado">
+              <img src="https://tse2.mm.bing.net/th?id=OIP.YInNO_1ULExmzblUqYrA_wAAAA&pid=Api&P=0&h=180" alt="Corte Infantil Personalizado" loading="lazy">
             </div>
             <div class="servico-detalhe">
               <h3 class="servico-titulo">Corte Infantil Personalizado</h3>
@@ -226,7 +264,7 @@
         <div class="col-md-4 mb-4">
           <div class="servico-card">
             <div class="servico-imagem">
-              <img src="https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?q=80&w=1000&auto=format&fit=crop" class="w-100" alt="Barba Completa">
+              <img src="https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?q=80&w=1000&auto=format&fit=crop" class="w-100" alt="Barba Completa" loading="lazy">
             </div>
             <div class="servico-detalhe">
               <h3 class="servico-titulo">Barba Completa</h3>
@@ -244,7 +282,7 @@
         <div class="col-md-4 mb-4">
           <div class="servico-card">
             <div class="servico-imagem">
-              <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=2070&auto=format&fit=crop" class="w-100" alt="Acabamento de Barba">
+              <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=2070&auto=format&fit=crop" class="w-100" alt="Acabamento de Barba" loading="lazy">
             </div>
             <div class="servico-detalhe">
               <h3 class="servico-titulo">Acabamento de Barba</h3>
@@ -263,7 +301,7 @@
           <div class="servico-card">
             <span class="badge-destaque">Tendência</span>
             <div class="servico-imagem">
-              <img src="https://tse1.mm.bing.net/th?id=OIP.a6-DUlozthVBi47ILIyKSAHaH4&pid=Api" alt="Design de Barba">
+              <img src="https://tse1.mm.bing.net/th?id=OIP.a6-DUlozthVBi47ILIyKSAHaH4&pid=Api" alt="Design de Barba" loading="lazy">
             </div>
             <div class="servico-detalhe">
               <h3 class="servico-titulo">Design de Barba</h3>
@@ -358,7 +396,7 @@
         </div>
       </div>
       <div class="text-center mt-4 pt-3 border-top border-secondary">
-        <p class="mb-0">&copy; 2025 Barbearia do Di - Todos os direitos reservados</p>
+        <p class="mb-0">&copy; 2024 Barbearia do Di - Todos os direitos reservados</p>
       </div>
     </div>
   </footer>
