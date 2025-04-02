@@ -1,0 +1,336 @@
+/* home.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #e8f3ea;
+}
+
+/* Navbar com padrão de listras sutis */
+.navbar {
+  background: repeating-linear-gradient(
+    45deg,
+    #062912,
+    #062912 10px,
+    #083a18 10px,
+    #083a18 20px
+  ) !important;
+  padding: 15px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  color: white;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  max-height: 50px;
+  margin-right: 10px;
+}
+
+.nav-link {
+  color: white !important;
+  font-weight: 500;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #a0c8a2 !important;
+}
+
+/* Destaque para o link de login */
+.nav-link.login-link {
+  font-weight: bold;
+  text-shadow: 0 0 2px rgba(255,255,255,0.3);
+}
+
+.hero-section {
+  position: relative;
+}
+
+/* Banner promocional */
+.promo-banner {
+  background-color: #ff6b35;
+  color: white;
+  padding: 15px 0;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+
+/* Botões com efeito de hover aprimorado */
+.btn-primary, .btn-agendar, .btn-outline-success {
+  background-color: #062912;
+  border-color: #062912;
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-outline-success {
+  background-color: transparent;
+  color: #062912;
+  border-color: #062912;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+}
+
+.btn-primary:before, .btn-agendar:before, .btn-outline-success:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.1);
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+.btn-primary:hover:before, .btn-agendar:hover:before, .btn-outline-success:hover:before {
+  width: 100%;
+}
+
+.btn-primary:hover, .btn-agendar:hover {
+  background-color: #0a4120;
+  border-color: #0a4120;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-outline-success:hover {
+  background-color: #062912;
+  color: white;
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.section-title {
+  color: #062912;
+  font-weight: 700;
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #062912;
+}
+
+/* Cards com efeito de hover aprimorado */
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  position: relative;
+  padding-bottom: 70px; /* Espaço para o botão */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* Footer com padrão de listras */
+.footer {
+  background: repeating-linear-gradient(
+    45deg,
+    #062912,
+    #062912 10px,
+    #083a18 10px,
+    #083a18 20px
+  );
+  color: white;
+  padding: 40px 0 20px;
+  position: relative;
+}
+
+/* Estilos para os depoimentos renovados */
+.testimonial-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  position: relative;
+  margin-top: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.testimonial-card::before {
+  content: "\201C";
+  font-family: Georgia, serif;
+  font-size: 60px;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  color: #062912;
+  opacity: 0.2;
+}
+
+.testimonial-card::after {
+  content: "\201D";
+  font-family: Georgia, serif;
+  font-size: 60px;
+  position: absolute;
+  bottom: -40px;
+  right: 10px;
+  color: #062912;
+  opacity: 0.2;
+}
+
+.testimonial-content {
+  font-style: italic;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
+  font-weight: 600;
+  color: #062912;
+  display: block;
+  text-align: right;
+}
+
+/* Estilo para seções com fundo de padrão geométrico */
+.pattern-bg {
+  background-color: #f8f9fa;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23062912' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Estilo para CTA Banner com padrão de listras */
+.cta-banner {
+  background: linear-gradient(rgba(6, 41, 18, 0.9), rgba(6, 41, 18, 0.9)), 
+              repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+              ),
+              url('images/cta-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 60px 0;
+  color: white;
+  margin: 30px 0;
+  text-align: center;
+  position: relative;
+}
+
+/* Efeito de borda estilizada para seções */
+.border-styled {
+  border-top: 3px solid #062912;
+  border-bottom: 3px solid #062912;
+  position: relative;
+}
+
+.border-styled::before,
+.border-styled::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: #062912;
+  border-style: solid;
+}
+
+.border-styled::before {
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 3px 3px 0 0;
+}
+
+.border-styled::after {
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 3px 3px 0;
+}
+
+/* Estilos do título da história */
+.titulo-historia h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Estilos dos parágrafos */
+.container p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Media query para responsividade */
+@media (max-width: 768px) {
+  .titulo-historia h2 {
+    font-size: 1.5rem;
+  }
+  
+  .btn-outline-success {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    margin-top: 15px;
+  }
+  
+  .card {
+    padding-bottom: 0;
+  }
+}

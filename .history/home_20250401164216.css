@@ -1,0 +1,385 @@
+/* home.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+/* Navbar com padrão de listras sutis */
+.navbar {
+  background: repeating-linear-gradient(
+    45deg,
+    #062912,
+    #062912 10px,
+    #083a18 10px,
+    #083a18 20px
+  ) !important;
+  padding: 15px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  color: white;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  max-height: 50px;
+  margin-right: 10px;
+}
+
+.nav-link {
+  color: white !important;
+  font-weight: 500;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #a0c8a2 !important;
+}
+
+/* Banner promocional com transição para o hero */
+.promo-banner {
+  background-color: #ff6600;
+  color: white;
+  padding: 15px 0;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.promo-banner::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(to bottom, #ff6600, transparent);
+  z-index: -1;
+}
+
+.promo-banner h3 {
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.promo-banner p {
+  margin-bottom: 0;
+  font-size: 1.1rem;
+}
+
+/* Hero Section com transição do laranja */
+.hero-section {
+  position: relative;
+  padding: 0;
+  margin-top: 0;
+  overflow: hidden;
+}
+
+.hero-bg {
+  background-image: url('images/hero-background.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    rgba(255, 102, 0, 0.7) 0%, 
+    rgba(6, 41, 18, 0.8) 30%, 
+    rgba(6, 41, 18, 0.9) 100%), 
+    repeating-linear-gradient(
+      45deg, 
+      transparent, 
+      transparent 10px, 
+      rgba(255,255,255,0.05) 10px, 
+      rgba(255,255,255,0.05) 20px
+    );
+}
+
+.hero-content {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  z-index: 2;
+}
+
+.hero-section h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Botões com efeito de hover aprimorado */
+.btn-primary, .btn-outline-light {
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary {
+  background-color: #062912;
+  border-color: #062912;
+}
+
+.btn-primary:hover {
+  background-color: #0a4120;
+  border-color: #0a4120;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-outline-light:hover {
+  background-color: rgba(255,255,255,0.9);
+  color: #062912 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Seção de destaques */
+.destaques {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+  position: relative;
+}
+
+.section-title {
+  color: #062912;
+  font-weight: 700;
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 15px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #062912;
+}
+
+/* Cards com efeito de hover aprimorado */
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #062912;
+  font-weight: 600;
+}
+
+.card-text {
+  color: #666;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.btn-outline-success {
+  background-color: transparent;
+  color: #062912;
+  border-color: #062912;
+  border-radius: 30px;
+  padding: 8px 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  align-self: center;
+  margin-top: auto;
+}
+
+.btn-outline-success:hover {
+  background-color: #062912;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Galeria de imagens */
+.galeria {
+  padding: 60px 0;
+  background-color: #fff;
+  position: relative;
+}
+
+.galeria .card {
+  transition: all 0.3s ease;
+}
+
+.galeria .card-img-top {
+  height: 250px;
+  object-fit: cover;
+}
+
+/* Seção de história */
+.historia {
+  padding: 60px 0;
+  position: relative;
+}
+
+.historia h2 {
+  color: #062912;
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+}
+
+.historia .lead {
+  color: #062912;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.historia img {
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.historia img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Seção de benefícios */
+.beneficios-section {
+  padding: 60px 0;
+  background-color: #fff;
+  position: relative;
+}
+
+.beneficios-section i {
+  color: #062912;
+}
+
+.beneficios-section .h5 {
+  color: #062912;
+  font-weight: 600;
+}
+
+/* Estilos para os depoimentos */
+.testimonials {
+  padding: 60px 0;
+  position: relative;
+}
+
+.testimonial-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  position: relative;
+  margin-top: 20px;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.testimonial-card::before {
+  content: "\201C";
+  font-family: Georgia, serif;
+  font-size: 60px;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  color: #062912;
+  opacity: 0.2;
+}
+
+.testimonial-content {
+  font-style: italic;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
+  font-weight: 600;
+  color: #062912;
+  display: block;
+  text-align: right;
+}
+
+/* CTA Banner com padrão de listras e cor laranja */
+.

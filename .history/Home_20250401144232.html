@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barbearia do DI - Cortes, Barba e Estilo</title>
+  <meta name="description" content="Barbearia do DI - Cortes masculinos, barba e serviços de estética para homens. Agende seu horário online.">
+  <meta name="keywords" content="barbearia, corte masculino, barba, cabelo, estilo masculino">
+  <meta name="author" content="Barbearia do DI">
+  <link rel="stylesheet" href="home.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+
+<body>
+  <!-- Navbar melhorada -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img class="logo img-fluid me-2" src="images/logo.png" alt="Logo Barbearia do DI" width="50">
+        <span class="fw-bold">Barbearia do DI</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="Home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Especialidades.html">Especialidades</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="agendamento.html">Agendamento</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Contato.html">Contato</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login / Cadastre-se</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section com imagem de fundo -->
+  <section class="hero-section text-white text-center py-5">
+    <div class="hero-bg" style="background-image: url('images/hero-background.jpg'); background-size: cover; background-position: center; height: 500px; position: relative;">
+      <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6);"></div>
+      <div class="container position-relative" style="z-index: 2; padding-top: 150px;">
+        <h1 class="display-4 fw-bold">Barbearia do DI</h1>
+        <p class="lead mb-4">Tradição e estilo em cada corte</p>
+        <a href="agendamento.html" class="btn btn-primary btn-lg px-4">Agende seu Horário</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Serviços em Cards -->
+  <section class="services py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5">Nossos Serviços</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/corte.jpg" class="card-img-top" alt="Corte de Cabelo">
+            <div class="card-body">
+              <h5 class="card-title">Corte de Cabelo</h5>
+              <p class="card-text">Cortes modernos e clássicos realizados por profissionais experientes.</p>
+              <p class="fw-bold">A partir de R$ 35,00</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/barba.jpg" class="card-img-top" alt="Barba">
+            <div class="card-body">
+              <h5 class="card-title">Barba</h5>
+              <p class="card-text">Modelagem e hidratação para sua barba ficar impecável.</p>
+              <p class="fw-bold">A partir de R$ 25,00</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="images/combo.jpg" class="card-img-top" alt="Combo">
+            <div class="card-body">
+              <h5 class="card-title">Combo Completo</h5>
+              <p class="card-text">Corte + barba com desconto especial.</p>
+              <p class="fw-bold">A partir de R$ 50,00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeria de Imagens (usando as imagens do carousel original) -->
+  <section class="galeria py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Conheça Nosso Espaço</h2>
+      <p class="text-center mb-5">Um ambiente pensado para seu conforto e estilo</p>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 overflow-hidden shadow-sm">
+            <img src="images/barbearia.jpg" class="card-img-top img-fluid" alt="Fachada da Barbearia do DI">
+            <div class="card-body">
+              <h5 class="card-title">Nossa Fachada</h5>
+              <p class="card-text">Localização privilegiada e fácil acesso</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 overflow-hidden shadow-sm">
+            <img src="images/barbearia2.jpeg" class="card-img-top img-fluid" alt="Barbeiro cortando cabelo de cliente">
+            <div class="card-body">
+              <h5 class="card-title">Profissionais Qualificados</h5>
+              <p class="card-text">Equipe especializada em diversos estilos</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 overflow-hidden shadow-sm">
+            <img src="images/barbearia3.jpg" class="card-img-top img-fluid" alt="Produtos de barbearia na prateleira">
+            <div class="card-body">
+              <h5 class="card-title">Produtos Premium</h5>
+              <p class="card-text">Utilizamos apenas os melhores produtos do mercado</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de História Melhorada -->
+  <section class="historia py-5 bg-light">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h2 class="mb-4">Nossa História</h2>
+          <p class="lead">Barbearia do Di: 10 anos de estilo, tradição e inovação</p>
+          <p>
+            Há uma década, a Barbearia do Di vem oferecendo mais do que cortes de
+            cabelo e cuidados com a barba – proporcionamos uma verdadeira
+            experiência de estilo, conforto e bem-estar. Ao longo desses 10 anos,
+            conquistamos a confiança dos nossos clientes ao unir o melhor da
+            barbearia tradicional com as tendências mais modernas.
+          </p>
+          <p>
+            Aqui, tradição não significa ficar preso ao passado. Mantemos vivo o espírito 
+            dos barbeiros de antigamente, oferecendo um atendimento personalizado e de alta qualidade, 
+            mas sempre antenados nas novidades do mundo da moda masculina.
+          </p>
+          <p>
+            Venha fazer parte dessa trajetória e descubra como o clássico e o moderno se encontram na
+            Barbearia do Di. Porque, cada detalhe é pensado para que você se sinta
+            renovado e confiante.
+          </p>
+          <a href="agendamento.html" class="btn btn-primary">Agende seu Horário</a>
+        </div>
+        <div class="col-lg-6 mt-4 mt-lg-0">
+          <img src="images/historia.jpg" alt="Nossa equipe de barbeiros" class="img-fluid rounded shadow">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Depoimentos -->
+  <section class="testimonials py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">O que nossos clientes dizem</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="d-flex justify-content-between mb-3">
+                <div class="d-flex align-items-center">
+                  <img src="images/avatar1.jpg" alt="Cliente" class="rounded-circle me-3" width="50" height="50">
+                  <h5 class="mb-0">João Silva</h5>
+                </div>
+                <div class="text-warning">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </div>
+              </div>
+              <p class="card-text">"Atendimento excelente! Meu corte ficou perfeito e o ambiente é muito agradável."</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="d-flex justify-content-between mb-3">
+                <div class="d-flex align-items-center">
+                  <img src="images/avatar2.jpg" alt="Cliente" class="rounded-circle me-3" width="50" height="50">
+                  <h5 class="mb-0">Carlos Mendes</h5>
+                </div>
+                <div class="text-warning">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-half"></i>
+                </div>
+              </div>
+              <p class="card-text">"Profissionais muito qualificados. Minha barba nunca esteve tão bem cuidada!"</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="d-flex justify-content-between mb-3">
+                <div class="d-flex align-items-center">
+                  <img src="images/avatar3.jpg" alt="Cliente" class="rounded-circle me-3" width="50" height="50">
+                  <h5 class="mb-0">Pedro Alves</h5>
+                </div>
+                <div class="text-warning">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </div>
+              </div>
+              <p class="card-text">"Ambiente confortável e atendimento pontual. Recomendo a todos!"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Melhorado -->
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3 mb-md-0">
+          <h5>Barbearia do DI</h5>
+          <p>Estilo e tradição em cada corte</p>
+          <p>
+            <i class="bi bi-geo-alt me-2"></i> Rua Exemplo, 123 - Cidade<br>
+            <i class="bi bi-telephone me-2"></i> (XX) XXXX-XXXX<br>
+            <i class="bi bi-envelope me-2"></i> contato@barbeariadodi.com
+          </p>
+        </div>
+        <div class="col-md-4 mb-3 mb-md-0">
+          <h5>Horário de Funcionamento</h5>
+          <p>Segunda a Sexta: 9h às 20h<br>
+             Sábado: 9h às 18h<br>
+             Domingo: Fechado</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Siga-nos</h5>
+          <div class="d-flex">
+            <a href="#" class="text-white me-3 fs-4"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-white me-3 fs-4"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="text-white fs-4"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4">
+      <div class="text-center">
+        <p class="mb-0">© 2024 Barbearia do DI. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

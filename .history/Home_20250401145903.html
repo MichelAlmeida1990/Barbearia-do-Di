@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barbearia do DI - Cortes, Barba e Estilo</title>
+  <meta name="description" content="Barbearia do DI - Cortes masculinos, barba e serviços de estética para homens. Agende seu horário online.">
+  <meta name="keywords" content="barbearia, corte masculino, barba, cabelo, estilo masculino">
+  <meta name="author" content="Barbearia do DI">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap e Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <link rel="stylesheet" href="home.css" />
+  
+  <style>
+    /* Estilos inline para manter consistência com a página de especialidades */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      background-color: #e8f3ea;
+    }
+    
+    /* Navbar com padrão de listras sutis */
+    .navbar {
+      background: repeating-linear-gradient(
+        45deg,
+        #062912,
+        #062912 10px,
+        #083a18 10px,
+        #083a18 20px
+      ) !important;
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    
+    .navbar-brand {
+      color: white;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+    
+    .navbar-brand:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .logo {
+      height: 40px;
+      margin-right: 10px;
+    }
+    
+    .nav-link {
+      color: white;
+      font-weight: 500;
+      margin-left: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+      color: #a0c8a2;
+    }
+    
+    .hero-section {
+      position: relative;
+    }
+    
+    /* Botões com efeito de hover aprimorado */
+    .btn-primary, .btn-agendar {
+      background-color: #062912;
+      border-color: #062912;
+      color: white;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .btn-primary:before, .btn-agendar:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: rgba(255,255,255,0.1);
+      transition: all 0.3s;
+      z-index: -1;
+    }
+    
+    .btn-primary:hover:before, .btn-agendar:hover:before {
+      width: 100%;
+    }
+    
+    .btn-primary:hover, .btn-agendar:hover {
+      background-color: #0a4120;
+      border-color: #0a4120;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    .section-title {
+      color: #062912;
+      font-weight: 700;
+      margin-bottom: 30px;
+      position: relative;
+      padding-bottom: 10px;
+      text-align: center;
+    }
+    
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: #062912;
+    }
+    
+    /* Cards com efeito de hover aprimorado */
+    .card {
+      border: none;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #fff;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .promo-banner {
+      background-color: #ff6b35;
+      color: white;
+      padding: 15px 0;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 0.8; }
+      50% { opacity: 1; }
+      100% { opacity: 0.8; }
+    }
+    
+    /* Footer com padrão de listras */
+    .footer {
+      background: repeating-linear-gradient(
+        45deg,
+        #062912,
+        #062912 10px,
+        #083a18 10px,
+        #083a18 20px
+      );
+      color: white;
+      padding: 40px 0 20px;
+      position: relative;
+    }
+    
+    /* Estilos para os depoimentos renovados */
+    .testimonial-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      position: relative;
+      margin-top: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    
+    .testimonial-card::before {
+      content: "\201C";
+      font-family: Georgia, serif;
+      font-size: 60px;
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      color: #062912;
+      opacity: 0.2;
+    }
+    
+    .testimonial-card::after {
+      content: "\201D";
+      font-family: Georgia, serif;
+      font-size: 60px;
+      position: absolute;
+      bottom: -40px;
+      right: 10px;
+      color: #062912;
+      opacity: 0.2;
+    }
+    
+    .testimonial-content {
+      font-style: italic;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial-author {
+      font-weight: 600;
+      color: #062912;
+      display: block;
+      text-align: right;
+    }
+    
+    /* Estilo para seções com fundo de padrão geométrico */
+    .pattern-bg {
+      background-color: #f8f9fa;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23062912' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    
+    /* Estilo para CTA Banner com padrão de listras */
+    .cta-banner {
+      background: linear-gradient(rgba(6, 41, 18, 0.9), rgba(6, 41, 18, 0.9)), 
+                  repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(255,255,255,0.05) 10px,
+                    rgba(255,255,255,0.05) 20px
+                  ),
+                  url('images/cta-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 60px 0;
+      color: white;
+      margin: 30px 0;
+      text-align: center;
+      position: relative;
+    }
+    
+    /* Efeito de borda estilizada para seções */
+    .border-styled {
+      border-top: 3px solid #062912;
+      border-bottom: 3px solid #062912;
+      position: relative;
+    }
+    
+    .border-styled::before,
+    .border-styled::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-color: #062912;
+      border-style: solid;
+    }
+    
+    .border-styled::before {
+      top: -3px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 3px 3px 0 0;
+    }
+    
+    .border-styled::after {
+      bottom: -3px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 0 3px 3px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar com padrão de listras -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img class="logo img-fluid me-2" src="images/logo.png" alt="Logo Barbearia do DI" width="50">
+        <span class="fw-bold">Barbearia do DI</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html" aria-current="page">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Especialidades.html">Especialidades</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="agendamento.html">Agendamento</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Contato.html">Contato</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login / Cadastre-se</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner Promocional (igual ao da página especialidades) -->
+  <div class="promo-banner">
+    <div class="container text-center">
+      <h3>🎉 PROMOÇÃO DE MARÇO 🎉</h3>
+      <p>Toda quarta-feira: 20% OFF em qualquer serviço!</p>
+    </div>
+  </div>
+
+  <!-- Hero Section com imagem de fundo e padrão de listras -->
+  <section class="hero-section text-white text-center py-5">
+    <div class="hero-bg" style="background-image: url('images/hero-background.jpg'); background-size: cover; background-position: center; height: 500px; position: relative;">
+      <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(6, 41, 18, 0.8), rgba(6, 41, 18, 0.8)), repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px);"></div>
+      <div class="container position-relative" style="z-index: 2; padding-top: 150px;">
+        <h1 class="display-4 fw-bold">Barbearia do DI</h1>
+        <p class="lead mb-4">Tradição e estilo em cada corte</p>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="agendamento.html" class="btn btn-primary btn-lg px-4">Agende seu Horário</a>
+          <a href="Especialidades.html" class="btn btn-outline-light btn-lg px-4">Nossos Serviços</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destaques (em vez de serviços completos) -->
+  <section class="destaques py-5 pattern-bg">
+    <div class="container">
+      <h2 class="section-title">Destaques da Semana</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="position-relative">
+              <img src="images/fadeamericano.png" class="card-img-top" alt="Fade Americano">
+              <span class="position-absolute top-0 end-0 bg-danger text-white m-3 px-2 py-1 rounded-pill">Mais Popular</span>
+            </div>
+            <div class="card-body text-center">
+              <h5 class="card-title">Fade Americano</h5>
+              <p class="card-text">Corte navalhado mais raspadinho, perfeito para quem busca um visual moderno.</p>
+              <p class="fw-bold">R$ 40,00</p>
+              <a href="Especialidades.html#masculino" class="btn btn-outline-success">Ver Detalhes</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <img src="images/Navalhado com degradê na barba.jpg" class="card-img-top" alt="Navalhado com Degradê na Barba">
+            <div class="card-body text-center">
+              <h5 class="card-title">Navalhado com Degradê na Barba</h5>
+              <p class="card-text">Combinação perfeita de corte navalhado com acabamento premium na barba.</p>
+              <p class="fw-bold">R$ 60,00</p>
+              <a href="Especialidades.html#masculino" class="btn btn-outline-success">Ver Detalhes</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="position-relative">
+              <img src="images/nudred_infantil.jpg" class="card-img-top" alt="Nudred Infantil">
+              <span class="position-absolute top-0 end-0 bg-primary text-white m-3 px-2 py-1 rounded-pill">Novidade</span>
+            </div>
+            <div class="card-body text-center">
+              <h5 class="card-title">Nudred Infantil</h5>
+              <p class="card-text">Corte infantil especializado para cabelos afro com técnica de esponja.</p>
+              <p class="fw-bold">R$ 35,00</p>
+              <a href="Especialidades.html#infantil" class="btn btn-outline-success">Ver Detalhes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="Especialidades.html" class="btn btn-primary">Ver Todos os Serviços</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeria de Imagens -->
+  <section class="galeria py-5 border-styled">
+    <div class="container">
+      <h2 class="section-title">Conheça Nosso Espaço</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 overflow-hidden">
+            <img src="images/barbearia.jpg" class="card-img-top img-fluid" alt="Fachada da Barbearia do DI" style="height: 250px; object-fit: cover;">
+            <div class="card-body text-center">
+              <h5 class="card-title">Nossa Fachada</h5>
+              <p class="card-text">Localização privilegiada e fácil acesso</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 overflow-hidden">
+            <img src="images/barbearia2.jpeg" class="card-img-top img-fluid" alt="Barbeiro cortando cabelo de cliente" style="height: 250px; object-fit: cover;">
+            <div class="card-body text-center">
+              <h5 class="card-title">Profissionais Qualificados</h5>
+              <p class="card-text">Equipe especializada em diversos estilos</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 overflow-hidden">
+            <img src="images/barbearia3.jpg" class="card-img-top img-fluid" alt="Produtos de barbearia na prateleira" style="height: 250px; object-fit: cover;">
+            <div class="card-body text-center">
+              <h5 class="card-title">Produtos Premium</h5>
+              <p class="card-text">Utilizamos apenas os melhores produtos do mercado</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de História -->
+  <section class="historia py-5 pattern-bg">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h2 class="mb-4">Nossa História</h2>
+          <p class="lead">Barbearia do Di: 10 anos de estilo, tradição e inovação</p>
+          <p>
+            Há uma década, a Barbearia do Di vem oferecendo mais do que cortes de
+            cabelo e cuidados com a barba – proporcionamos uma verdadeira
+            experiência de estilo, conforto e bem-estar. Ao longo desses 10 anos,
+            conquistamos a confiança dos nossos clientes ao unir o melhor da
+            barbearia tradicional com as tendências mais modernas.
+          </p>
+          <p>
+            Aqui, tradição não significa ficar preso ao passado. Mantemos vivo o espírito 
+            dos barbeiros de antigamente, oferecendo um atendimento personalizado e de alta qualidade, 
+            mas sempre antenados nas novidades do mundo da moda masculina.
+          </p>
+          <a href="agendamento.html" class="btn btn-primary">Agende seu Horário</a>
+        </div>
+        <div class="col-lg-6 mt-4 mt-lg-0">
+          <img src="images/historia.jpg" alt="Nossa equipe de barbeiros" class="img-fluid rounded shadow">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Benefícios com padrão de fundo -->
+  <section class="beneficios-section py-5 border-styled">
+    <div class="container">
+      <h2 class="section-title">Por que escolher a Barbearia do Di?</h2>
+      
+      <div class="row text-center mt-4">
+        <div class="col-md-4 mb-4">
+          <div class="p-4 bg-white rounded shadow h-100">
+            <div class="mb-3">
+              <i class="fas fa-cut fa-3x text-success"></i>
+            </div>
+            <h3 class="h5 mb-3">Profissionais Premium</h3>
+            <p class="mb-0">Nossa equipe é formada por barbeiros altamente qualificados e com anos de experiência.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <div class="p-4 bg-white rounded shadow h-100">
+            <div class="mb-3">
+              <i class="fas fa-certificate fa-3x text-success"></i>
+            </div>
+            <h3 class="h5 mb-3">Produtos de Qualidade</h3>
+            <p class="mb-0">Utilizamos apenas produtos de alta qualidade para garantir o melhor resultado.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <div class="p-4 bg-white rounded shadow h-100">
+            <div class="mb-3">
+              <i class="fas fa-clock fa-3x text-success"></i>
+            </div>
+            <h3 class="h5 mb-3">Experiência Completa</h3>
+            <p class="mb-0">Oferecemos uma experiência completa de barbearia com conforto e excelência.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Depoimentos Renovada (sem fotos de avatar) -->
+  <section class="testimonials py-5 pattern-bg">
+    <div class="container">
+      <h2 class="section-title">O que nossos clientes dizem</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card">
+            <p class="testimonial-content">"Atendimento excelente! Meu corte ficou perfeito e o ambiente é muito agradável. Recomendo a todos que buscam qualidade e profissionalismo."</p>
+            <div class="text-warning mb-2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="testimonial-author">João Silva</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card">
+            <p class="testimonial-content">"Profissionais muito qualificados. Minha barba nunca esteve tão bem cuidada! O atendimento é pontual e o ambiente super agradável."</p>
+            <div class="text-warning mb-2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="testimonial-author">Carlos Mendes</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card">
+            <p class="testimonial-content">"Ambiente confortável e atendimento pontual. As técnicas utilizadas são modernas e o resultado sempre supera minhas expectativas!"</p>
+            <div class="text-warning mb-2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="testimonial-author">Pedro Alves</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner com padrão de listras -->
+  <section class="cta-banner">
+    <div class="container text-center">
+      <h2>Pronto para renovar seu visual?</h2>
+      <p>Agende seu horário agora e experimente o melhor em cuidados masculinos</p>
+      <a href="agendamento.html" class="btn btn-light btn-lg px-4 mt-3">Agendar Horário</a>
+    </div>
+  </section>
+
+  <!-- Footer com padrão de listras -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-md-4">
+          <h5>Barbearia do Di</h5>
+          <p>Especialistas em estilo masculino desde 2018.</p>
+          <div class="social-links mt-3">
+            <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-whatsapp fa-lg"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h5>Horário de Funcionamento</h5>
+          <ul class="list-unstyled">
+            <li><span class="fw-bold">Segunda a Sexta:</span> 9h às 20h</li>
+            <li><span class="fw-bold">Sábados:</span> 9h às 18h</li>
+            <li><span class="fw-bold">Domingos:</span> 9h às 13h</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Contato</h5>
+          <p>
+            <i class="fas fa-map-marker-alt me-2"></i> Rua da Barbearia, 123<br>
+            <i class="fas fa-phone me-2"></i> (11) 99999-9999<br>
+            <i class="fas fa-envelope me-2"></i> contato@barbeariadodi.com.br
+          </p>
+        </div>
+      </div>
+      <hr class="my-4" style="border-color: rgba(255, 255, 255, 0.2);">
+      <div class="text-center">
+        <p class="mb-0">&copy; 2024 Barbearia do Di - Todos os direitos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

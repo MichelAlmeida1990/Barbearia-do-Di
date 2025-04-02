@@ -1,0 +1,499 @@
+/* Estilos gerais */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+/* Navbar estilizada */
+.navbar {
+  background-color: transparent;
+  padding: 15px 0;
+  transition: all 0.3s ease;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #062912,
+    #062912 10px,
+    #083a18 10px,
+    #083a18 20px
+  );
+}
+
+.navbar-brand {
+  font-weight: 700;
+  color: white !important;
+  font-size: 1.6rem;
+}
+
+.navbar-brand img {
+  max-height: 40px;
+  margin-right: 10px;
+}
+
+.navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  margin: 0 10px;
+  padding: 8px 0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  width: 100%;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: white !important;
+}
+
+/* Estrutura do header */
+.header-wrapper {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.header-top {
+  background-color: rgba(6, 41, 18, 0.9);
+  padding: 80px 0;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.header-bottom {
+  background-color: #041f0e;
+  height: 60px;
+  position: relative;
+}
+
+/* Conteúdo do header */
+.header-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+/* Seção de especialidades */
+.especialidades-section {
+  background-color: #f9f9f9;
+  padding: 60px 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Cabeçalho da seção de especialidades */
+.especialidades-header {
+  background-color: #062912;
+  color: white;
+  padding: 60px 0;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Filtro de categorias */
+.filtro-categorias {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  padding: 0 15px;
+}
+
+.btn-filtro {
+  background-color: transparent;
+  border: 2px solid #062912;
+  color: #062912;
+  margin: 5px;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-filtro:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: rgba(6, 41, 18, 0.1);
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+.btn-filtro:hover:before {
+  width: 100%;
+}
+
+.btn-filtro:hover,
+.btn-filtro.active {
+  background-color: #062912;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Seções de Serviços */
+.servicos-section {
+  margin-bottom: 60px;
+  background-color: #f9f9f9;
+  padding: 30px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.categoria-titulo {
+  color: #062912;
+  font-weight: 700;
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.categoria-titulo::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #062912;
+}
+
+/* Cards com efeito de hover aprimorado */
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  position: relative;
+  padding-bottom: 70px; /* Espaço para o botão */
+  height: 100%; /* Faz com que todos os cards na mesma linha tenham a mesma altura */
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+  height: 220px !important; /* Forçando a mesma altura para todas as imagens */
+  object-fit: cover !important; /* Garantindo que a imagem cubra o espaço sem distorção */
+  width: 100%; /* Garantindo que a largura seja 100% do card */
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+/* Para garantir que o carousel dentro do card também tenha a mesma altura */
+.card .carousel, 
+.card .carousel-inner,
+.card .carousel-item,
+.card .carousel-item img {
+  height: 220px !important;
+  object-fit: cover !important;
+}
+
+.card-body {
+  padding: 20px;
+  flex: 1; /* Faz com que o corpo do card ocupe o espaço disponível */
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #062912;
+  font-weight: 600;
+}
+
+.card-text {
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Botões com efeito de hover aprimorado */
+.btn-outline-success {
+  background-color: transparent;
+  color: #062912;
+  border-color: #062912;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  transition: all 0.3s ease;
+  z-index: 1;
+  margin-top: auto; /* Empurra o botão para o final do card */
+}
+
+.btn-outline-success:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: rgba(6, 41, 18, 0.1);
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+.btn-outline-success:hover:before {
+  width: 100%;
+}
+
+.btn-outline-success:hover {
+  background-color: #062912;
+  color: white;
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Seção de Benefícios */
+.beneficios-section {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23062912' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  margin: 40px 0;
+  border-top: 3px solid #062912;
+  border-bottom: 3px solid #062912;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  color: #062912;
+  font-weight: 700;
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #062912;
+}
+
+/* CTA Banner com padrão de listras e cor laranja */
+.cta-banner {
+  background: linear-gradient(rgba(255, 102, 0, 0.9), rgba(204, 51, 0, 0.9)), 
+              repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+              ),
+              url('images/cta-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 60px 0;
+  color: white;
+  margin: 30px 0;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Botão laranja para a promoção */
+.btn-promocao {
+  background-color: #fff;
+  color: #ff6600;
+  border: 2px solid #fff;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-promocao:hover {
+  background-color: transparent;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Footer com padrão de listras */
+.footer {
+  background: repeating-linear-gradient(
+    45deg,
+    #062912,
+    #062912 10px,
+    #083a18 10px,
+    #083a18 20px
+  );
+  color: white;
+  padding: 40px 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer h5 {
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.footer p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+}
+
+.footer i {
+  margin-right: 8px;
+}
+
+/* Social links no footer */
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  margin-right: 10px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background-color: white;
+  color: #062912;
+  transform: translateY(-3px);
+}
+
+/* Estilo específico para a seção "Nossas Especialidades" */
+.nossas-especialidades {
+  position: relative;
+  color: white;
+  padding: 60px 0 30px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Gradiente de cor clara para escura */
+.nossas-especialidades::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    #0a4e24 0%, 
+    #062912 50%, 
+    #041f0e 100%);
+  z-index: -2;
+}
+
+/* Padrão de listras sobreposto */
+.nossas-especialidades::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255,255,255,0.03) 10px,
+    rgba(255,255,255,0.03) 20px
+  );
+  z-index: -1;
+}
+
+.nossas-especialidades .header-title {
+  color: white;
+}
+
+.nossas-especialidades .header-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .header-top {
+    padding: 50px 0;
+  }
+  
+  .header-bottom {
+    height: 40px;
+  }
+  
+  .filtro-categorias {
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+  
+  .categoria-titulo {
+    font-size: 1.5rem;
+  }
+  
+  .btn-outline-success {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    margin-top: 15px;
+  }
+  
+  .card {
+    padding-bottom: 0;
+  }
+}
