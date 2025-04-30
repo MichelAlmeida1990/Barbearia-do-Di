@@ -460,7 +460,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             // Combos e promoções
             else if (contemPalavraChave(msgLower, ["combo", "combos", "promoção", "promocao", "desconto", "pacote", "oferta", "especial", "promocional", "promo", "economizar", "economia", "mais barato", "melhor preço", "melhor preco"])) {
-                resposta = '<strong>Combos e Promoções:</strong><br>• <strong>Corte + Barba Simples</strong>: R$ 65,00 (55 min)<br>• <strong>Corte + Barba Completa</strong>: R$ 70,00 (60 min)<br><br><span style="color: #FF8C00; font-weight: bold;">PROMOÇÃO DE MAIO: 20% OFF em qualquer serviço às quartas-feiras!</span><br><br>Deseja agendar algum desses combos?';
+                resposta = '<strong>Combos e Promoções:</strong><br>• <strong>Corte + Barba Simples</strong>: R$ 65,00 (55 min)<br>• <strong>Corte + Barba Completa</strong>: R$ 70,00 (60 min)<br><br><span style="color: #FF8C00; font-weight: bold;">PROMOÇÃO DE MA: 20% OFF em qualquer serviço às quartas-feiras!</span><br><br>Deseja agendar algum desses combos?';
             }
                         // Endereço e localização
                         else if (contemPalavraChave(msgLower, ["endereço", "endereco", "localização", "localizacao", "onde fica", "como chegar", "lugar", "local", "bairro", "rua", "avenida", "av", "r.", "onde vocês ficam", "onde voces ficam", "onde estão", "onde estao"])) {
