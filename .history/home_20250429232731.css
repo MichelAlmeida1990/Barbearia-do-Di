@@ -595,22 +595,6 @@ body {
   }
 }
 
-/* Estilo personalizado para o botão do VLibras */
-.access-button {
-  border-radius: 50% !important;
-  background-color: #062912 !important; /* Cor verde da sua identidade visual */
-}
-
-.access-button:hover {
-  background-color: #0a4120 !important;
-}
-
-/* Ajuste para evitar sobreposição com o botão de chat */
-.chat-float-button {
-  bottom: 100px; /* Aumenta a distância do botão do chat em relação à parte inferior */
-}
-
-
 /* Estilos para o botão flutuante de chat */
 .chat-float-button {
   position: fixed;
@@ -645,5 +629,4 @@ body {
     right: 20px;
   }
 }
-
 
