@@ -9,6 +9,9 @@
   <meta name="keywords" content="barbearia, corte masculino, barba, cabelo, estilo masculino">
   <meta name="author" content="Barbearia do DI">
   
+  <!-- Meta tag para permitir scripts de terceiros -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:; img-src 'self' https: data:;">
+  
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +23,62 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   
   <link rel="stylesheet" href="home.css" />
+  
+  <!-- Estilos específicos para o VLibras -->
+  <style>
+    /* Estilo personalizado para o botão do VLibras */
+    .access-button {
+      border-radius: 50% !important;
+      background-color: #062912 !important;
+    }
+    
+    .access-button:hover {
+      background-color: #0a4120 !important;
+    }
+    
+    /* Ajuste para evitar sobreposição com o botão de chat */
+    .chat-float-button {
+      bottom: 100px !important;
+    }
+    
+    /* Estilos para VLibras alternativo */
+    #vlibras-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    
+    #vlibras-button {
+      background-color: #062912;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    
+    #vlibras-button:hover {
+      background-color: #0a4120;
+    }
+    
+    #vlibras-widget {
+      display: none;
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 300px;
+      height: 300px;
+      z-index: 1000;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+  </style>
 </head>
 
 <body>
@@ -348,58 +407,38 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-  <!-- VLibras -->
-  <div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-      <div class="vw-plugin-top-wrapper"></div>
+  <!-- VLibras Alternativo (compatível com GitHub Pages) -->
+  <div id="vlibras-container">
+    <button id="vlibras-button" aria-label="Abrir tradutor de libras">
+      <img src="https://vlibras.gov.br/app/assets/component-ac8054e9.png" alt="VLibras" style="width: 35px; height: 35px;">
+    </button>
+    <div id="vlibras-widget">
+      <iframe src="https://vlibras.gov.br/app" width="300" height="300" title="Tradutor de Libras" frameborder="0"></iframe>
     </div>
   </div>
-  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  
   <script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
+    // Script para controlar a exibição do widget VLibras
+    document.getElementById('vlibras-button').addEventListener('click', function() {
+      const widget = document.getElementById('vlibras-widget');
+      if (widget.style.display === 'none' || !widget.style.display) {
+        widget.style.display = 'block';
+      } else {
+        widget.style.display = 'none';
+      }
+    });
+    
+    // Verificar se o widget está pronto
+    window.addEventListener('load', function() {
+      console.log('VLibras alternativo carregado com sucesso');
+    });
   </script>
-  <!-- Fim VLibras -->
+  <!-- Fim VLibras Alternativo -->
 
   <!-- Botão flutuante de chat -->
   <div id="chat-float-button" class="chat-float-button" onclick="window.location.href='atendimento-virtual.html'">
     <i class="fas fa-comments"></i>
   </div>
-  <!-- VLibras Frame -->
-<iframe id="vlibrasFrame" src="vlibras.html" style="position: fixed; bottom: 0; right: 0; width: 0; height: 0; border: none; z-index: 9999;" title="VLibras"></iframe>
-
-<script>
-  // Script para comunicação com o iframe do VLibras
-  document.addEventListener('DOMContentLoaded', function() {
-    const vlibrasFrame = document.getElementById('vlibrasFrame');
-    
-    // Ouvir mensagens do iframe do VLibras
-    window.addEventListener('message', function(event) {
-      if (event.data && event.data.source === 'vlibras-frame') {
-        // Processar eventos do VLibras
-        switch (event.data.action) {
-          case 'ready':
-            console.log('VLibras frame está pronto');
-            break;
-          case 'modalOpened':
-            // Ajustar iframe quando o modal é aberto
-            vlibrasFrame.style.width = '350px';
-            vlibrasFrame.style.height = '500px';
-            break;
-          case 'modalClosed':
-            // Reduzir iframe quando o modal é fechado
-            vlibrasFrame.style.width = '0';
-            vlibrasFrame.style.height = '0';
-            break;
-        }
-      }
-    });
-    
-    // Log para debug
-    console.log('Comunicação com VLibras inicializada');
-  });
-</script>
-
 </body>
 
 </html>

@@ -365,41 +365,7 @@
   <div id="chat-float-button" class="chat-float-button" onclick="window.location.href='atendimento-virtual.html'">
     <i class="fas fa-comments"></i>
   </div>
-  <!-- VLibras Frame -->
-<iframe id="vlibrasFrame" src="vlibras.html" style="position: fixed; bottom: 0; right: 0; width: 0; height: 0; border: none; z-index: 9999;" title="VLibras"></iframe>
-
-<script>
-  // Script para comunicação com o iframe do VLibras
-  document.addEventListener('DOMContentLoaded', function() {
-    const vlibrasFrame = document.getElementById('vlibrasFrame');
-    
-    // Ouvir mensagens do iframe do VLibras
-    window.addEventListener('message', function(event) {
-      if (event.data && event.data.source === 'vlibras-frame') {
-        // Processar eventos do VLibras
-        switch (event.data.action) {
-          case 'ready':
-            console.log('VLibras frame está pronto');
-            break;
-          case 'modalOpened':
-            // Ajustar iframe quando o modal é aberto
-            vlibrasFrame.style.width = '350px';
-            vlibrasFrame.style.height = '500px';
-            break;
-          case 'modalClosed':
-            // Reduzir iframe quando o modal é fechado
-            vlibrasFrame.style.width = '0';
-            vlibrasFrame.style.height = '0';
-            break;
-        }
-      }
-    });
-    
-    // Log para debug
-    console.log('Comunicação com VLibras inicializada');
-  });
-</script>
-
+  
 </body>
 
 </html>

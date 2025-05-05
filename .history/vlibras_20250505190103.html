@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VLibras - Barbearia do DI</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: transparent;
+      overflow: hidden;
+    }
+    
+    /* Container principal */
+    .vlibras-container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Botão flutuante */
+    .vlibras-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #062912;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      z-index: 9999;
+      border: none;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    
+    .vlibras-button:hover {
+      transform: scale(1.05);
+      background-color: #0a4120;
+    }
+    
+    .vlibras-button img {
+      width: 35px;
+      height: 35px;
+    }
+    
+    /* Modal */
+    .vlibras-modal {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 300px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      z-index: 9998;
+      display: none;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .vlibras-modal.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Cabeçalho do modal */
+    .vlibras-header {
+      background-color: #062912;
+      color: white;
+      padding: 12px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .vlibras-header h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+    }
+    
+    .vlibras-close {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 0 5px;
+    }
+    
+    /* Corpo do modal */
+    .vlibras-body {
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .vlibras-avatar {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 15px;
+      border-radius: 5px;
+    }
+    
+    .vlibras-text {
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.5;
+    }
+    
+    /* Botões */
+    .vlibras-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .vlibras-btn {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+    
+    .vlibras-btn-primary {
+      background-color: #062912;
+      color: white;
+    }
+    
+    .vlibras-btn-primary:hover {
+      background-color: #0a4120;
+    }
+    
+    .vlibras-btn-secondary {
+      background-color: #e9ecef;
+      color: #333;
+    }
+    
+    .vlibras-btn-secondary:hover {
+      background-color: #dee2e6;
+    }
+    
+    /* Iframe do VLibras */
+    .vlibras-iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      display: none;
+    }
+    
+    .vlibras-iframe.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="vlibras-container">
+    <!-- Botão flutuante do VLibras -->
+    <button class="vlibras-button" id="vlibrasButton" aria-label="Abrir tradutor de libras">
+      <img src="https://vlibras.gov.br/app/assets/component-ac8054e9.png" alt="Ícone VLibras">
+    </button>
+    
+    <!-- Modal do VLibras -->
+    <div class="vlibras-modal" id="vlibrasModal">
+      <div class="vlibras-header">
+        <h3>Tradutor VLibras</h3>
+        <button class="vlibras-close" id="vlibrasClose" aria-label="Fechar">&times;</button>
+      </div>
+      
+      <div class="vlibras-body">
+        <img src="https://vlibras.gov.br/app/assets/avatar.png" alt="Avatar VLibras" class="vlibras-avatar">
+        
+        <div class="vlibras-text">
+          <p>O VLibras traduz conteúdos digitais (texto, áudio e vídeo) em Português para Libras, tornando computadores, celulares e plataformas web acessíveis para pessoas surdas.</p>
+        </div>
+        
+        <div class="vlibras-actions">
+          <button class="vlibras-btn vlibras-btn-primary" id="vlibrasTranslate">Traduzir esta página</button>
+          <button class="vlibras-btn vlibras-btn-secondary" id="vlibrasFullVersion">Abrir versão completa</button>
+        </div>
+      </div>
+      
+      <!-- Iframe para carregar o VLibras quando solicitado -->
+      <iframe id="vlibrasIframe" class="vlibras-iframe" src="about:blank" title="Tradutor VLibras"></iframe>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Elementos do DOM
+      const button = document.getElementById('vlibrasButton');
+      const modal = document.getElementById('vlibrasModal');
+      const closeBtn = document.getElementById('vlibrasClose');
+      const translateBtn = document.getElementById('vlibrasTranslate');
+      const fullVersionBtn = document.getElementById('vlibrasFullVersion');
+      const iframe = document.getElementById('vlibrasIframe');
+      
+      // Função para enviar mensagens para a página pai
+      function sendMessageToParent(action, data = {}) {
+        if (window.parent && window.parent !== window) {
+          window.parent.postMessage({
+            source: 'vlibras-frame',
+            action: action,
+            data: data
+          }, '*');
+        }
+      }
+      
+      // Abrir modal
+      button.addEventListener('click', function() {
+        modal.classList.add('active');
+        sendMessageToParent('modalOpened');
+      });
+      
+      // Fechar modal
+      closeBtn.addEventListener('click', function() {
+        modal.classList.remove('active');
+        iframe.classList.remove('active');
+        iframe.src = 'about:blank';
+        sendMessageToParent('modalClosed');
+      });
+      
+      // Traduzir a página atual
+      translateBtn.addEventListener('click', function() {
+        iframe.src = 'https://vlibras.gov.br/app';
+        iframe.classList.add('active');
+        
+        // Ajustar altura do modal para acomodar o iframe
+        modal.style.height = '400px';
+        
+        // Notificar a página pai
+        sendMessageToParent('translationStarted');
+      });
+      
+      // Abrir versão completa em nova aba
+      fullVersionBtn.addEventListener('click', function() {
+        window.open('https://vlibras.gov.br/app', '_blank');
+        sendMessageToParent('fullVersionOpened');
+      });
+      
+      // Notificar que o frame está pronto
+      sendMessageToParent('ready');
+      
+      // Ouvir mensagens da página pai
+      window.addEventListener('message', function(event) {
+        if (event.data && event.data.source === 'vlibras-parent') {
+          // Processar comandos da página pai se necessário
+          switch (event.data.action) {
+            case 'open':
+              modal.classList.add('active');
+              break;
+            case 'close':
+              modal.classList.remove('active');
+              iframe.classList.remove('active');
+              iframe.src = 'about:blank';
+              break;
+          }
+        }
+      });
+      
+      // Log para debug
+      console.log('VLibras frame inicializado com sucesso');
+    });
+  </script>
+</body>
+</html>
